@@ -1,13 +1,24 @@
 # Template 1: Contact Form Acknowledgment (Auto-Reply sent to Visitor)
-<!-- 
-EmailJS Variables used here: 
-{{to_name}}      - Visitor's first name
-{{to_email}}     - Visitor's email
-{{project_type}} - Selected project type
-{{message}}      - Visitor's message
-{{company}}      - Visitor's company
-{{budget}}       - Selected budget
--->
+
+**EmailJS Template Configuration:**
+- Goes to: Visitor's email address
+- Template ID: `template_b6fhvwu` (autoReplyTemplateId)
+- Subject: Thank you for contacting us, {{to_name}}!
+
+**Required Variables in EmailJS Template:**
+```
+{{to_name}}
+{{to_email}}
+{{from_name}}
+{{from_name_full}}
+{{project_type}}
+{{message}}
+{{company}}
+{{budget}}
+```
+
+**HTML Content:**
+
 ```html
 <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #cbd5e1;">
   <div style="color: #f1f5f9; font-size: 14px;">
@@ -76,7 +87,7 @@ EmailJS Variables used here:
 
   <p style="color: #cbd5e1; margin-top: 24px; margin-bottom: 8px;">
     Best regards,<br/>
-    <strong style="color: #f1f5f9;">Michael Otieno Ouma</strong><br/>
+    <strong style="color: #f1f5f9;">{{from_name}}</strong><br/>
     <span style="color: #64748b; font-size: 13px;">Full-Stack Developer & Founder of Spectre</span>
   </p>
 </div>
@@ -91,20 +102,30 @@ EmailJS Variables used here:
 </footer>
 ```
 
-# Template 2: New Message Notification (Sent to YOU)
-<!-- 
-EmailJS Variables used here: 
-{{from_name}}    - Visitor's full name
-{{from_email}}   - Visitor's email
-{{company}}      - Visitor's company
-{{project_type}} - Selected project type
-{{budget}}       - Selected budget
-{{message}}      - Visitor's message
--->
+# Template 2: New Message Notification (Sent to YOU - Admin)
+
+**EmailJS Template Configuration:**
+- Goes to: Your email address (michael@spectre.dev)
+- Template ID: `template_6dyuk08v` (templateId)
+- Subject: New inquiry from {{from_name}} - {{project_type}}
+
+**Required Variables in EmailJS Template:**
+```
+{{from_name}}
+{{from_email}}
+{{reply_to}}
+{{company}}
+{{project_type}}
+{{budget}}
+{{message}}
+```
+
+**HTML Content:**
+
 ```html
 <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #cbd5e1; background-color: #0f172a; padding: 20px;">
   <p style="color: #f1f5f9; margin-bottom: 16px;">
-    Hi Michael,
+    <strong>🔔 New Message Received</strong>
   </p>
 
   <p style="line-height: 1.6; margin-bottom: 16px;">
