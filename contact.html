@@ -923,8 +923,13 @@ footer {
   </div>
 </footer>
 
+<!-- ─── EmailJS CDN ─── -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- ─── Runtime config (fill in your keys here) ─── -->
+<script src="emailjs.config.js"></script>
+
 <script>
-// Theme Toggle
+// ─── Theme ───────────────────────────────────────────────────
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
@@ -944,21 +949,35 @@ themeToggle.addEventListener('click', () => {
 
 initTheme();
 
-// Header scroll shadow
+// ─── Header scroll shadow ────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('main-header').style.boxShadow =
     window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
 });
 
-// Form validation + submit
-const form = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const btnText = document.getElementById('btnText');
-const btnLoader = document.getElementById('btnLoader');
+// ─── EmailJS initialisation ──────────────────────────────────
+(function () {
+  emailjs.init({
+    publicKey: EMAILJS_CONFIG.publicKey,
+    // Block headless/bot browsers
+    blockHeadless: true,
+    limitRate: {
+      // Throttle: max 1 submission per 10 seconds per browser session
+      id: 'contact_form',
+      throttle: 10000,
+    },
+  });
+})();
 
-function showError(inputId, errId, show) {
+// ─── Form validation ─────────────────────────────────────────
+const form       = document.getElementById('contactForm');
+const submitBtn  = document.getElementById('submitBtn');
+const btnText    = document.getElementById('btnText');
+const btnLoader  = document.getElementById('btnLoader');
+
+function showFieldError(inputId, errId, show) {
   const input = document.getElementById(inputId);
-  const err = document.getElementById(errId);
+  const err   = document.getElementById(errId);
   if (show) {
     input.classList.add('error');
     err.classList.add('visible');
@@ -972,56 +991,155 @@ function validateForm() {
   let valid = true;
 
   const firstName = document.getElementById('firstName').value.trim();
-  showError('firstName', 'firstNameErr', !firstName);
+  showFieldError('firstName', 'firstNameErr', !firstName);
   if (!firstName) valid = false;
 
   const lastName = document.getElementById('lastName').value.trim();
-  showError('lastName', 'lastNameErr', !lastName);
+  showFieldError('lastName', 'lastNameErr', !lastName);
   if (!lastName) valid = false;
 
-  const email = document.getElementById('email').value.trim();
+  const email  = document.getElementById('email').value.trim();
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  showError('email', 'emailErr', !emailOk);
+  showFieldError('email', 'emailErr', !emailOk);
   if (!emailOk) valid = false;
 
   const subject = document.getElementById('subject').value;
-  showError('subject', 'subjectErr', !subject);
+  showFieldError('subject', 'subjectErr', !subject);
   if (!subject) valid = false;
 
   const message = document.getElementById('message').value.trim();
-  showError('message', 'messageErr', message.length < 20);
+  showFieldError('message', 'messageErr', message.length < 20);
   if (message.length < 20) valid = false;
 
   return valid;
 }
 
-// Live clear errors
+// Clear individual field errors on input
 ['firstName', 'lastName', 'email', 'subject', 'message'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
-    const el = document.getElementById(id);
-    el.classList.remove('error');
+    document.getElementById(id).classList.remove('error');
     const errEl = document.getElementById(id + 'Err');
     if (errEl) errEl.classList.remove('visible');
   });
 });
 
+// ─── Inline error banner helpers ─────────────────────────────
+function showBanner(msg) {
+  let banner = document.getElementById('formErrorBanner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'formErrorBanner';
+    banner.style.cssText = [
+      'margin-bottom:20px',
+      'padding:14px 18px',
+      'border-radius:12px',
+      'border:1px solid var(--error)',
+      'background:rgba(248,113,113,0.08)',
+      'color:var(--error)',
+      'font-size:13px',
+      'font-weight:500',
+      'line-height:1.5',
+      'display:flex',
+      'align-items:flex-start',
+      'gap:10px',
+    ].join(';');
+    form.insertAdjacentElement('beforebegin', banner);
+  }
+  banner.innerHTML = `<span style="font-size:18px;flex-shrink:0">⚠️</span><span>${msg}</span>`;
+  banner.style.display = 'flex';
+  banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function hideBanner() {
+  const banner = document.getElementById('formErrorBanner');
+  if (banner) banner.style.display = 'none';
+}
+
+// ─── Form submit → EmailJS ────────────────────────────────────
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  hideBanner();
   if (!validateForm()) return;
 
+  // UI: loading state
   submitBtn.classList.add('loading');
   btnText.style.display = 'none';
   btnLoader.style.display = 'inline';
 
-  // Simulate network request
-  await new Promise(r => setTimeout(r, 1800));
+  // Collect template parameters from the form
+  const firstName   = document.getElementById('firstName').value.trim();
+  const lastName    = document.getElementById('lastName').value.trim();
+  const email       = document.getElementById('email').value.trim();
+  const company     = document.getElementById('company').value.trim();
+  const projectType = document.getElementById('subject').value;
+  const budget      = document.getElementById('budget').value;
+  const message     = document.getElementById('message').value.trim();
 
-  document.getElementById('formView').style.display = 'none';
-  document.getElementById('successView').classList.add('visible');
+  // ── 1. Notification email (to you) ──────────────────────────
+  const notificationParams = {
+    from_name:    `${firstName} ${lastName}`,
+    from_email:   email,
+    reply_to:     email,
+    company:      company || 'N/A',
+    project_type: projectType,
+    budget:       budget  || 'Not specified',
+    message:      message,
+  };
+
+  // ── 2. Auto-reply (to the visitor) ──────────────────────────
+  const autoReplyParams = {
+    to_name:   firstName,
+    to_email:  email,
+    from_name: 'Michael Otieno Ouma',
+    reply_to:  'michael@spectre.dev',
+  };
+
+  try {
+    // Fire both sends in parallel for speed
+    await Promise.all([
+      emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        notificationParams
+      ),
+      emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.autoReplyTemplateId,
+        autoReplyParams
+      ),
+    ]);
+
+    // Success
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').classList.add('visible');
+
+  } catch (error) {
+    console.error('EmailJS error:', error);
+
+    // Determine a helpful message for the user
+    let userMsg = 'Something went wrong sending your message. Please try again or email me directly at '
+      + '<a href="mailto:michael@spectre.dev" style="color:var(--error);text-decoration:underline">michael@spectre.dev</a>.';
+
+    if (error && error.status === 429) {
+      userMsg = 'You\'re sending messages too quickly. Please wait a few seconds and try again.';
+    } else if (error && (error.status === 400 || error.status === 401 || error.status === 403)) {
+      userMsg = 'Configuration error — the form could not send. Please contact me directly at '
+        + '<a href="mailto:michael@spectre.dev" style="color:var(--error);text-decoration:underline">michael@spectre.dev</a>.';
+    }
+
+    showBanner(userMsg);
+
+    // Reset button state so the user can retry
+    submitBtn.classList.remove('loading');
+    btnText.style.display = '';
+    btnLoader.style.display = 'none';
+  }
 });
 
+// ─── Reset form after success ─────────────────────────────────
 function resetForm() {
   form.reset();
+  hideBanner();
   document.getElementById('formView').style.display = '';
   document.getElementById('successView').classList.remove('visible');
   submitBtn.classList.remove('loading');
