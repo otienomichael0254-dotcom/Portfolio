@@ -1,3 +1,5 @@
+# Template 1: Contact Form Acknowledgment
+
 ```html
 <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #cbd5e1;">
   <div style="color: #f1f5f9; font-size: 14px;">
@@ -79,6 +81,8 @@
   </p>
 </footer>
 ```
+
+# Template 2: Personal Response
 
 ```html
 <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #cbd5e1; background-color: #0f172a; padding: 20px;">

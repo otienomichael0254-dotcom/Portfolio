@@ -1088,10 +1088,16 @@ form.addEventListener('submit', async (e) => {
 
   // ── 2. Auto-reply (to the visitor) ──────────────────────────
   const autoReplyParams = {
-    to_name:   firstName,
-    to_email:  email,
-    from_name: 'Michael Otieno Ouma',
-    reply_to:  'michael@spectre.dev',
+    to_name:        firstName,
+    to_email:       email,
+    from_name:      'Michael Otieno Ouma',
+    reply_to:       'michael@spectre.dev',
+    // Full submission recap — shown in the auto-reply body
+    from_name_full: `${firstName} ${lastName}`,
+    company:        company     || 'N/A',
+    project_type:   projectType,
+    budget:         budget      || 'Not specified',
+    message:        message,
   };
 
   try {
