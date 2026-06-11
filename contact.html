@@ -1090,6 +1090,7 @@ form.addEventListener('submit', async (e) => {
   const autoReplyParams = {
     to_name:        firstName,
     to_email:       email,
+    email:          email, // Added to fix 422 error based on the dashboard screenshot
     from_name:      'Michael Otieno Ouma',
     reply_to:       'otienomichael0254@gmail.com',
     // Full submission recap — shown in the auto-reply body
