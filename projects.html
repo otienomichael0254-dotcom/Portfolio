@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects | Michael Otieno Ouma</title>
+<meta name="description" content="Explore the projects built by Michael Otieno Ouma — Software Developer and IT Specialist."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1a2942;
+  --bg-tertiary: rgba(15, 23, 42, 0.85);
+  --bg-card: rgba(26, 41, 66, 0.6);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #64748b;
+  --accent: #38bdf8;
+  --accent-dark: #0ea5e9;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --border-color: rgba(56, 189, 248, 0.12);
+  --border-hover: rgba(56, 189, 248, 0.4);
+  --success: #34d399;
+  --purple: #a78bfa;
+  --orange: #fb923c;
+}
+
+html.light-theme {
+  --bg-primary: #f0f6ff;
+  --bg-secondary: #e2eeff;
+  --bg-tertiary: rgba(248, 250, 252, 0.92);
+  --bg-card: rgba(255,255,255,0.75);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #94a3b8;
+  --accent: #0ea5e9;
+  --accent-dark: #0284c7;
+  --accent-glow: rgba(14, 165, 233, 0.12);
+  --border-color: rgba(2, 132, 199, 0.18);
+  --border-hover: rgba(2, 132, 199, 0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ─── HEADER ─── */
+header {
+  position: fixed;
+  top: 0; width: 100%;
+  background: var(--bg-tertiary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+.logo .brand-name { color: var(--text-primary); }
+.logo .brand-accent { color: var(--accent); }
+
+nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active { color: var(--accent); }
+nav a.active::after,
+nav a:hover::after { width: 100%; }
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.4s ease;
+  user-select: none;
+}
+.theme-toggle:hover { transform: scale(1.2) rotate(20deg); }
+
+/* ─── PAGE HEADER ─── */
+.page-hero {
+  padding: 160px 60px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-tag {
+  display: inline-block;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── FILTER TABS ─── */
+.filter-section {
+  padding: 0 60px 60px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ─── PROJECTS GRID ─── */
+.projects-section {
+  padding: 0 60px 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3), 0 0 0 1px var(--border-hover);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image { transform: scale(1.04); }
+
+.project-image-placeholder {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image-placeholder { transform: scale(1.05); }
+
+.gradient-1 { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); }
+.gradient-2 { background: linear-gradient(135deg, #1a0533 0%, #2d1b6e 100%); }
+.gradient-3 { background: linear-gradient(135deg, #0a2e1a 0%, #1a5c36 100%); }
+.gradient-4 { background: linear-gradient(135deg, #2e1a0a 0%, #5c3618 100%); }
+.gradient-5 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+.gradient-6 { background: linear-gradient(135deg, #0a1628 0%, #162d4b 100%); }
+
+.project-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.project-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.project-year {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.project-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  color: var(--text-tertiary);
+  background: rgba(255,255,255,0.03);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tag {
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+  justify-content: center;
+}
+
+.link-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.link-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.link-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+}
+
+.link-secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ─── FEATURED BADGE ─── */
+.featured-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+/* ─── STATS STRIP ─── */
+.stats-strip {
+  max-width: 1400px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+
+.stat-number {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+  padding: 60px 60px 30px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 12px;
+  max-width: 280px;
+}
+
+.footer-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.social-btn {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  background: var(--accent-glow);
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.footer-copy span { color: var(--accent); }
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  header, .page-hero, .filter-section, .projects-section, .stats-strip { padding-left: 40px; padding-right: 40px; }
+  .page-title { font-size: 42px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  footer { padding: 40px 40px 24px; }
+}
+
+@media (max-width: 768px) {
+  header { padding: 15px 20px; }
+  nav { gap: 16px; }
+  nav a:not(.active) { display: none; }
+  .page-hero { padding: 140px 20px 60px; }
+  .page-title { font-size: 32px; }
+  .filter-section { padding: 0 20px 40px; }
+  .projects-section, .stats-strip { padding: 0 20px 60px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  footer { padding: 40px 20px 20px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="main-header">
+  <a href="index.html" class="logo">
+    <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+    <span class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</span>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-tag">✦ Portfolio</div>
+  <h1 class="page-title">My Projects</h1>
+  <p class="page-subtitle">A curated collection of products, tools and experiments I've built — from full-stack web apps to developer tools and beyond.</p>
+</section>
+
+<!-- FILTER TABS -->
+<div class="filter-section">
+  <button class="filter-btn active" data-filter="all">All Projects</button>
+  <button class="filter-btn" data-filter="web">Web Apps</button>
+  <button class="filter-btn" data-filter="mobile">Mobile</button>
+  <button class="filter-btn" data-filter="tool">Tools</button>
+  <button class="filter-btn" data-filter="startup">Startup</button>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-card">
+    <div class="stat-number">12+</div>
+    <div class="stat-label">Projects Shipped</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Active Products</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">5k+</div>
+    <div class="stat-label">Users Reached</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">8</div>
+    <div class="stat-label">Technologies Used</div>
+  </div>
+</div>
+
+<!-- PROJECTS GRID -->
+<div class="projects-section">
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- Project 1 -->
+    <article class="project-card" data-category="startup">
+      <div class="featured-badge">⭐ Featured</div>
+      <div class="project-image-placeholder gradient-1">🔭</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Startup</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h2 class="project-name">Spectre</h2>
+        <p class="project-desc">The company I founded — building high-performance software products and digital solutions for modern businesses. A creative tech studio where innovation meets execution.</p>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Figma</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">🌐 Visit Site</a>
+          <a href="#" class="project-link link-secondary">📄 Case Study</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card" data-category="web">
+      <div class="project-image-placeholder gradient-2">🏥</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Web App</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h2 class="project-name">Mathari Hospital Ticketing System</h2>
+        <p class="project-desc">A comprehensive ticketing and issue management system for Mathari National Teaching and Referral Hospital. Streamlines patient support, appointment scheduling, and issue resolution.</p>
+        <div class="project-tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Responsive Design</span>
+        </div>
+        <div class="project-links">
+          <a href="https://www.mntrh.go.ke/" target="_blank" class="project-link link-primary">🌐 View System</a>
+          <a href="#" class="project-link link-secondary">📄 Details</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card" data-category="web">
+      <div class="project-image-placeholder gradient-3">🧠</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Web App</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h2 class="project-name">AI Dashboard Pro</h2>
+        <p class="project-desc">A real-time analytics dashboard powered by AI insights. Visualize complex data with beautiful charts, predictive analytics, and automated reporting.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Python</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Chart.js</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">🚀 Live Demo</a>
+          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card" data-category="mobile">
+      <div class="project-image-placeholder gradient-4">📱</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Mobile</span>
+          <span class="project-year">2023</span>
+        </div>
+        <h2 class="project-name">FitTrack App</h2>
+        <p class="project-desc">A cross-platform fitness tracking app with personalized workout plans, nutrition logging, and progress visualization. Built for iOS and Android.</p>
+        <div class="project-tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Redux</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">📲 App Store</a>
+          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card" data-category="tool">
+      <div class="project-image-placeholder gradient-5">⚙️</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Tool</span>
+          <span class="project-year">2023</span>
+        </div>
+        <h2 class="project-name">DevFlow CLI</h2>
+        <p class="project-desc">A developer productivity CLI tool that automates repetitive git workflows, project scaffolding, and deployment pipelines. Used by 500+ devs.</p>
+        <div class="project-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">NPM</span>
+          <span class="tag">Shell</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">📦 npm install</a>
+          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-card" data-category="web">
+      <div class="project-image-placeholder gradient-6">🛒</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Web App</span>
+          <span class="project-year">2023</span>
+        </div>
+        <h2 class="project-name">Nexus Commerce</h2>
+        <p class="project-desc">A headless e-commerce platform with real-time inventory management, multi-currency support, and a blazing-fast checkout experience built on Next.js.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Redis</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">🌐 Live Demo</a>
+          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 7 -->
+    <article class="project-card" data-category="tool">
+      <div class="project-image-placeholder gradient-1">📊</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-category">Tool</span>
+          <span class="project-year">2022</span>
+        </div>
+        <h2 class="project-name">APIScope</h2>
+        <p class="project-desc">An open-source API monitoring and documentation tool. Automatically generates interactive API docs, tracks uptime, and alerts on performance degradation.</p>
+        <div class="project-tags">
+          <span class="tag">Go</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Swagger</span>
+          <span class="tag">Vue.js</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link link-primary">🚀 Try It</a>
+          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="font-size:20px;">
+          <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+        </div>
+        <p>Full-Stack Developer & Founder of Spectre. Building impactful software from Nairobi, Kenya.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="GitHub">🐙</a>
+          <a href="#" class="social-btn" title="LinkedIn">💼</a>
+          <a href="#" class="social-btn" title="Twitter">🐦</a>
+          <a href="#" class="social-btn" title="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Work</div>
+        <div class="footer-links">
+          <a href="#">Spectre Studio</a>
+          <a href="#">Open Source</a>
+          <a href="cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="contact.html">Hire Me</a>
+          <a href="mailto:michael@spectre.dev">Email Me</a>
+          <a href="#">Book a Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.classList.toggle('light-theme', saved === 'light');
+  themeToggle.textContent = saved === 'light' ? '☀️' : '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+  const isLight = html.classList.contains('light-theme');
+  const next = isLight ? 'dark' : 'light';
+  html.classList.toggle('light-theme', !isLight);
+  localStorage.setItem('theme', next);
+  themeToggle.textContent = next === 'light' ? '☀️' : '🌙';
+});
+
+initTheme();
+
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    cards.forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      if (match) {
+        card.style.opacity = '1';
+        card.style.transform = '';
+        card.style.display = 'flex';
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          if (btn.dataset.filter !== 'all' && card.dataset.category !== btn.dataset.filter) {
+            card.style.display = 'none';
+          }
+        }, 300);
+      }
+    });
+  });
+});
+
+// Header scroll shadow
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('main-header');
+  header.style.boxShadow = window.scrollY > 10
+    ? '0 4px 30px rgba(0,0,0,0.3)'
+    : 'none';
+});
+</script>
+
+</body>
+</html>

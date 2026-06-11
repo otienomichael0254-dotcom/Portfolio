@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact | Michael Otieno Ouma</title>
+<meta name="description" content="Get in touch with Michael Otieno Ouma — Full-Stack Developer and Founder of Spectre. Available for freelance, collaborations and full-time roles."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1a2942;
+  --bg-tertiary: rgba(15, 23, 42, 0.85);
+  --bg-card: rgba(26, 41, 66, 0.6);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #64748b;
+  --accent: #38bdf8;
+  --accent-dark: #0ea5e9;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --border-color: rgba(56, 189, 248, 0.12);
+  --border-hover: rgba(56, 189, 248, 0.4);
+  --success: #34d399;
+  --error: #f87171;
+  --input-bg: rgba(15, 23, 42, 0.5);
+}
+
+html.light-theme {
+  --bg-primary: #f0f6ff;
+  --bg-secondary: #e2eeff;
+  --bg-tertiary: rgba(248, 250, 252, 0.92);
+  --bg-card: rgba(255,255,255,0.8);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #94a3b8;
+  --accent: #0ea5e9;
+  --accent-dark: #0284c7;
+  --accent-glow: rgba(14, 165, 233, 0.12);
+  --border-color: rgba(2, 132, 199, 0.18);
+  --border-hover: rgba(2, 132, 199, 0.5);
+  --input-bg: rgba(248, 250, 252, 0.8);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ─── HEADER ─── */
+header {
+  position: fixed;
+  top: 0; width: 100%;
+  background: var(--bg-tertiary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+.logo .brand-name { color: var(--text-primary); }
+.logo .brand-accent { color: var(--accent); }
+
+nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active { color: var(--accent); }
+nav a.active::after,
+nav a:hover::after { width: 100%; }
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.4s ease;
+  user-select: none;
+}
+.theme-toggle:hover { transform: scale(1.2) rotate(20deg); }
+
+/* ─── PAGE HERO ─── */
+.page-hero {
+  padding: 160px 60px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-tag {
+  display: inline-block;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── CONTACT LAYOUT ─── */
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 60px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ─── LEFT PANEL ─── */
+.contact-info {
+  position: sticky;
+  top: 100px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 36px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: var(--border-hover);
+}
+
+.availability-dot {
+  width: 10px; height: 10px;
+  background: var(--success);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+}
+
+.availability-label {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 16px;
+}
+
+.info-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.info-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--accent-glow);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.contact-item-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-color);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.contact-item-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.social-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--accent-glow);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+/* ─── CONTACT FORM ─── */
+.contact-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 44px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-wrap:focus-within {
+  border-color: var(--border-hover);
+}
+
+.form-header {
+  margin-bottom: 36px;
+}
+
+.form-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.form-group:focus-within .form-label {
+  color: var(--accent);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  background: var(--input-bg);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.form-checkbox {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.form-checkbox-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.form-checkbox-label a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.form-checkbox-label a:hover { text-decoration: underline; }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.4);
+}
+
+.submit-btn:hover::before { opacity: 1; }
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+.submit-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ─── SUCCESS MESSAGE ─── */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+.success-message.visible { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.success-message h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.success-message p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+  padding: 60px 60px 30px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 12px;
+  max-width: 280px;
+}
+
+.footer-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.social-links-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.social-btn-sm {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  background: var(--accent-glow);
+}
+
+.social-btn-sm:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.footer-copy span { color: var(--accent); }
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* Error states */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 6px;
+  display: none;
+}
+
+.field-error.visible { display: block; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  header { padding: 18px 40px; }
+  .page-hero { padding: 140px 40px 70px; }
+  .contact-section { padding: 20px 40px 80px; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  footer { padding: 40px 40px 24px; }
+}
+
+@media (max-width: 900px) {
+  .contact-section { grid-template-columns: 1fr; }
+  .contact-info { position: static; }
+}
+
+@media (max-width: 768px) {
+  header { padding: 15px 20px; }
+  nav { gap: 16px; }
+  nav a:not(.active) { display: none; }
+  .page-hero { padding: 130px 20px 60px; }
+  .page-title { font-size: 32px; }
+  .contact-section { padding: 20px 20px 60px; }
+  .contact-form-wrap { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { padding: 40px 20px 20px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="main-header">
+  <a href="index.html" class="logo">
+    <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html" class="active">Contact</a>
+    <span class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</span>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-tag">✦ Get In Touch</div>
+  <h1 class="page-title">Let's Work Together</h1>
+  <p class="page-subtitle">Have a project in mind? Looking to collaborate or hire? I'd love to hear from you — let's build something great.</p>
+</section>
+
+<!-- CONTACT CONTENT -->
+<section class="contact-section">
+
+  <!-- LEFT: INFO PANEL -->
+  <div class="contact-info">
+    <div class="info-card">
+      <div class="availability-label">
+        <span class="availability-dot"></span>
+        Available for new projects
+      </div>
+      <h3>Let's Connect</h3>
+      <p>I'm currently open to freelance work, full-time opportunities, and exciting collaborations. Response time: usually within 24 hours.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="contact-items">
+        <a href="mailto:michael@spectre.dev" class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value">michael@spectre.dev</span>
+          </div>
+        </a>
+        <a href="tel:+254700000000" class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <span class="contact-item-label">Phone</span>
+            <span class="contact-item-value">+254 700 000 000</span>
+          </div>
+        </a>
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <span class="contact-item-label">Location</span>
+            <span class="contact-item-value">Nairobi, Kenya 🇰🇪</span>
+          </div>
+        </div>
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-item-icon">⏰</div>
+          <div class="contact-item-text">
+            <span class="contact-item-label">Timezone</span>
+            <span class="contact-item-value">EAT — UTC+3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="#" class="social-btn" title="GitHub">🐙 GitHub</a>
+        <a href="#" class="social-btn" title="LinkedIn">💼 LinkedIn</a>
+        <a href="#" class="social-btn" title="Twitter">🐦 Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: CONTACT FORM -->
+  <div class="contact-form-wrap" id="formWrap">
+    <div id="formView">
+      <div class="form-header">
+        <h2>Send a Message</h2>
+        <p>Fill out the form below and I'll get back to you as soon as possible. All fields marked * are required.</p>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required />
+            <div class="field-error" id="firstNameErr">Please enter your first name.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required />
+            <div class="field-error" id="lastNameErr">Please enter your last name.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address *</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required />
+          <div class="field-error" id="emailErr">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company">Company / Organization</label>
+          <input type="text" id="company" name="company" class="form-input" placeholder="Acme Inc. (optional)" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">Project Type *</label>
+          <select id="subject" name="subject" class="form-select" required>
+            <option value="" disabled selected>Select a project type…</option>
+            <option value="web">Web Application</option>
+            <option value="mobile">Mobile App</option>
+            <option value="fullstack">Full-Stack Development</option>
+            <option value="consulting">Tech Consulting</option>
+            <option value="collab">Collaboration / Partnership</option>
+            <option value="hire">Full-Time Hire</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="field-error" id="subjectErr">Please select a project type.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="budget">Estimated Budget</label>
+          <select id="budget" name="budget" class="form-select">
+            <option value="" disabled selected>Select a budget range…</option>
+            <option value="small">Under $1,000</option>
+            <option value="medium">$1,000 – $5,000</option>
+            <option value="large">$5,000 – $20,000</option>
+            <option value="enterprise">$20,000+</option>
+            <option value="discuss">Let's discuss</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message *</label>
+          <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, goals, timeline, and anything else that might be relevant…" required></textarea>
+          <div class="field-error" id="messageErr">Please enter a message (at least 20 characters).</div>
+        </div>
+
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="consent" class="form-checkbox" required />
+          <label for="consent" class="form-checkbox-label">
+            I agree to the <a href="#">Privacy Policy</a> and consent to being contacted regarding my inquiry. *
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnText">🚀 Send Message</span>
+          <span id="btnLoader" style="display:none;">⏳ Sending…</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="success-message" id="successView">
+      <span class="success-icon">🎉</span>
+      <h3>Message Sent!</h3>
+      <p>Thanks for reaching out! I've received your message and will get back to you within 24 hours. Looking forward to connecting!</p>
+      <button class="back-btn" onclick="resetForm()">← Send Another Message</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="font-size:20px;">
+          <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+        </div>
+        <p>Full-Stack Developer & Founder of Spectre. Building impactful software from Nairobi, Kenya.</p>
+        <div class="social-links-footer">
+          <a href="#" class="social-btn-sm" title="GitHub">🐙</a>
+          <a href="#" class="social-btn-sm" title="LinkedIn">💼</a>
+          <a href="#" class="social-btn-sm" title="Twitter">🐦</a>
+          <a href="mailto:michael@spectre.dev" class="social-btn-sm" title="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Work</div>
+        <div class="footer-links">
+          <a href="#">Spectre Studio</a>
+          <a href="#">Open Source</a>
+          <a href="cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="contact.html">Hire Me</a>
+          <a href="mailto:michael@spectre.dev">Email Me</a>
+          <a href="#">Book a Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.classList.toggle('light-theme', saved === 'light');
+  themeToggle.textContent = saved === 'light' ? '☀️' : '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+  const isLight = html.classList.contains('light-theme');
+  const next = isLight ? 'dark' : 'light';
+  html.classList.toggle('light-theme', !isLight);
+  localStorage.setItem('theme', next);
+  themeToggle.textContent = next === 'light' ? '☀️' : '🌙';
+});
+
+initTheme();
+
+// Header scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('main-header').style.boxShadow =
+    window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+});
+
+// Form validation + submit
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const btnText = document.getElementById('btnText');
+const btnLoader = document.getElementById('btnLoader');
+
+function showError(inputId, errId, show) {
+  const input = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if (show) {
+    input.classList.add('error');
+    err.classList.add('visible');
+  } else {
+    input.classList.remove('error');
+    err.classList.remove('visible');
+  }
+}
+
+function validateForm() {
+  let valid = true;
+
+  const firstName = document.getElementById('firstName').value.trim();
+  showError('firstName', 'firstNameErr', !firstName);
+  if (!firstName) valid = false;
+
+  const lastName = document.getElementById('lastName').value.trim();
+  showError('lastName', 'lastNameErr', !lastName);
+  if (!lastName) valid = false;
+
+  const email = document.getElementById('email').value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  showError('email', 'emailErr', !emailOk);
+  if (!emailOk) valid = false;
+
+  const subject = document.getElementById('subject').value;
+  showError('subject', 'subjectErr', !subject);
+  if (!subject) valid = false;
+
+  const message = document.getElementById('message').value.trim();
+  showError('message', 'messageErr', message.length < 20);
+  if (message.length < 20) valid = false;
+
+  return valid;
+}
+
+// Live clear errors
+['firstName', 'lastName', 'email', 'subject', 'message'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    const el = document.getElementById(id);
+    el.classList.remove('error');
+    const errEl = document.getElementById(id + 'Err');
+    if (errEl) errEl.classList.remove('visible');
+  });
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!validateForm()) return;
+
+  submitBtn.classList.add('loading');
+  btnText.style.display = 'none';
+  btnLoader.style.display = 'inline';
+
+  // Simulate network request
+  await new Promise(r => setTimeout(r, 1800));
+
+  document.getElementById('formView').style.display = 'none';
+  document.getElementById('successView').classList.add('visible');
+});
+
+function resetForm() {
+  form.reset();
+  document.getElementById('formView').style.display = '';
+  document.getElementById('successView').classList.remove('visible');
+  submitBtn.classList.remove('loading');
+  btnText.style.display = '';
+  btnLoader.style.display = 'none';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Michael Otieno Ouma | Full-Stack Developer & Founder</title>
+<meta name="description" content="Michael Otieno Ouma — Full-Stack Developer, Founder of Spectre. Available for hire and open to collaborations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1a2942;
+  --bg-tertiary: rgba(15, 23, 42, 0.85);
+  --bg-card: rgba(26, 41, 66, 0.6);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #64748b;
+  --accent: #38bdf8;
+  --accent-dark: #0ea5e9;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --border-color: rgba(56, 189, 248, 0.12);
+}
+
+html.light-theme {
+  --bg-primary: #f0f6ff;
+  --bg-secondary: #e2eeff;
+  --bg-tertiary: rgba(248, 250, 252, 0.92);
+  --bg-card: rgba(255,255,255,0.75);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #94a3b8;
+  --accent: #0ea5e9;
+  --accent-dark: #0284c7;
+  --accent-glow: rgba(14, 165, 233, 0.12);
+  --border-color: rgba(2, 132, 199, 0.18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-tertiary);
+  backdrop-filter: blur(10px);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo .brand-name {
+  color: var(--text-primary);
+}
+
+.logo .brand-accent {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 14px;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active { color: var(--accent); }
+nav a.active::after,
+nav a:hover::after { width: 100%; }
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* HERO SECTION */
+section.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 0;
+  margin-top: 60px;
+}
+
+section {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-subtitle {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.hero-title .accent {
+  color: var(--accent);
+}
+
+.hero-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+/* HERO IMAGE */
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(56, 189, 248, 0.2);
+  aspect-ratio: 3/4;
+}
+
+.decorative-element {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 2px dashed var(--border-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: border-color 0.3s ease;
+}
+
+/* BADGES */
+.badges {
+  position: absolute;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: var(--bg-tertiary);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.badge-1 {
+  top: 60px;
+  right: 40px;
+}
+
+.badge-2 {
+  bottom: 100px;
+  right: 20px;
+}
+
+.badge-3 {
+  bottom: 40px;
+  left: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px 40px;
+  }
+
+  section.hero {
+    padding: 80px 40px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  nav {
+    gap: 20px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    display: none;
+  }
+
+  nav a.active {
+    display: inline;
+  }
+
+  section.hero {
+    padding: 80px 20px 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+
+  .decorative-element {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+  padding: 60px 60px 30px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 12px;
+  max-width: 280px;
+}
+
+.footer-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.social-btn {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.footer-copy span { color: var(--accent); }
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover { color: var(--accent); }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="main-header">
+  <a href="index.html" class="logo" style="text-decoration:none;">
+    <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+  </a>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <span class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</span>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <!-- LEFT: CONTENT -->
+    <div class="hero-content">
+      <div class="hero-subtitle">Software Developer | Founder of Spectre</div>
+      <h1 class="hero-title">Hi, I'm <span class="accent">Michael otieno Ouma</span></h1>
+      <p class="hero-description">
+        I'm a Founder & CEO of Spectre. I design and develop high-performance software products. Available for hire and open to collaborations.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">👁️ View Projects</a>
+        <a href="#contact" class="btn btn-secondary">✉️ Hire Me</a>
+        <a href="cv.pdf" download class="btn btn-secondary">⬇️ Download CV</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: IMAGE -->
+    <div class="hero-image">
+      <div class="decorative-element"></div>
+      <img src="hero.png" alt="Michael otieno Ouma" class="profile-pic">
+      <div class="badges badge-1">
+        <span>💻 Full-stack Dev</span>
+      </div>
+      <div class="badges badge-2">
+        <span>👨‍💼 CEO, Spectre</span>
+      </div>
+      <div class="badges badge-3">
+        <span>🚀 Innovation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-size:20px; font-weight:800;">
+          <span style="color:var(--text-primary)">Michael</span><span style="color:var(--accent)">Otieno Ouma</span>
+        </div>
+        <p>Full-Stack Developer & Founder of Spectre. Building impactful software from Nairobi, Kenya.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="GitHub">🐙</a>
+          <a href="#" class="social-btn" title="LinkedIn">💼</a>
+          <a href="#" class="social-btn" title="Twitter">🐦</a>
+          <a href="mailto:michael@spectre.dev" class="social-btn" title="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Work</div>
+        <div class="footer-links">
+          <a href="#">Spectre Studio</a>
+          <a href="#">Open Source</a>
+          <a href="cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="contact.html">Hire Me</a>
+          <a href="mailto:michael@spectre.dev">Email Me</a>
+          <a href="#">Book a Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.classList.toggle('light-theme', saved === 'light');
+  themeToggle.textContent = saved === 'light' ? '☀️' : '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+  const isLight = html.classList.contains('light-theme');
+  const next = isLight ? 'dark' : 'light';
+  html.classList.toggle('light-theme', !isLight);
+  localStorage.setItem('theme', next);
+  themeToggle.textContent = next === 'light' ? '☀️' : '🌙';
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('main-header').style.boxShadow =
+    window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+});
+
+initTheme();
+</script>
+
+</body>
+</html>
