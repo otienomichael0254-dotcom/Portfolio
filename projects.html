@@ -559,17 +559,68 @@ footer {
 
 @media (max-width: 768px) {
   header { padding: 15px 20px; }
+  .logo { font-size: 18px; }
   nav { gap: 16px; }
   nav a:not(.active) { display: none; }
-  .page-hero { padding: 140px 20px 60px; }
-  .page-title { font-size: 32px; }
-  .filter-section { padding: 0 20px 40px; }
+  .page-hero { padding: 120px 20px 50px; }
+  .page-title { font-size: 28px; line-height: 1.2; }
+  .page-subtitle { font-size: 15px; max-width: 100%; }
+  .filter-section { padding: 0 20px 30px; gap: 8px; }
+  .filter-btn { padding: 8px 16px; font-size: 12px; }
   .projects-section, .stats-strip { padding: 0 20px 60px; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); }
-  footer { padding: 40px 20px 20px; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project-card { border-radius: 16px; }
+  .project-image, .project-image-placeholder { height: 160px; }
+  .project-body { padding: 18px; }
+  .project-name { font-size: 18px; }
+  .project-desc { font-size: 13px; }
+  .stats-strip { grid-template-columns: 1fr; gap: 16px; }
+  .stat-card { padding: 20px; }
+  .stat-number { font-size: 28px; }
+  .stat-label { font-size: 12px; }
+  footer { padding: 30px 20px 20px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand p { max-width: 100%; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-copy { font-size: 12px; }
+  .footer-bottom-links { gap: 16px; }
+  .footer-bottom-links a { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  header { padding: 12px 16px; }
+  .logo { font-size: 16px; }
+  .theme-toggle { font-size: 18px; }
+  nav { gap: 12px; }
+  .page-hero { padding: 100px 16px 40px; }
+  .page-tag { padding: 5px 12px; font-size: 11px; }
+  .page-title { font-size: 24px; }
+  .page-subtitle { font-size: 14px; line-height: 1.6; }
+  .filter-section { padding: 0 16px 25px; gap: 6px; }
+  .filter-btn { padding: 7px 12px; font-size: 11px; }
+  .projects-section { padding: 0 16px 50px; }
+  .projects-grid { gap: 16px; }
+  .project-image, .project-image-placeholder { height: 140px; }
+  .project-body { padding: 16px; }
+  .project-name { font-size: 16px; margin-bottom: 8px; }
+  .project-desc { font-size: 12px; margin-bottom: 16px; }
+  .project-category { font-size: 10px; padding: 3px 8px; }
+  .tag { font-size: 10px; padding: 3px 8px; }
+  .project-links { gap: 8px; }
+  .project-link { padding: 6px 12px; font-size: 11px; }
+  .stats-strip { padding: 0 16px 40px; }
+  .stat-card { padding: 16px; border-radius: 12px; }
+  .stat-number { font-size: 24px; }
+  .stat-label { font-size: 11px; }
+  footer { padding: 25px 16px 15px; }
+  .footer-top { gap: 20px; }
+  .footer-heading { font-size: 12px; margin-bottom: 14px; }
+  .footer-links { gap: 10px; }
+  .footer-links a { font-size: 13px; }
+  .social-links { gap: 10px; }
+  .social-btn { width: 36px; height: 36px; font-size: 16px; }
+  .footer-copy { font-size: 11px; }
 }
 </style>
 </head>
@@ -579,7 +630,7 @@ footer {
 <!-- HEADER -->
 <header id="main-header">
   <a href="index.html" class="logo">
-    <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+    <span class="brand-name">Michael</span><span class="brand-accent"> Otieno Ouma</span>
   </a>
   <nav>
     <a href="index.html">Home</a>
@@ -591,6 +642,7 @@ footer {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
+  <a href="index.html" style="display: inline-block; margin-bottom: 24px; color: var(--accent); text-decoration: none; font-weight: 500; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-dark)'" onmouseout="this.style.color='var(--accent)'">← Back to Home</a>
   <div class="page-tag">✦ Portfolio</div>
   <h1 class="page-title">My Projects</h1>
   <p class="page-subtitle">A curated collection of products, tools and experiments I've built — from full-stack web apps to developer tools and beyond.</p>
@@ -608,7 +660,7 @@ footer {
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stat-card">
-    <div class="stat-number">12+</div>
+    <div class="stat-number">2+</div>
     <div class="stat-label">Projects Shipped</div>
   </div>
   <div class="stat-card">
@@ -616,11 +668,11 @@ footer {
     <div class="stat-label">Active Products</div>
   </div>
   <div class="stat-card">
-    <div class="stat-number">5k+</div>
+    <div class="stat-number">1k+</div>
     <div class="stat-label">Users Reached</div>
   </div>
   <div class="stat-card">
-    <div class="stat-number">8</div>
+    <div class="stat-number">5</div>
     <div class="stat-label">Technologies Used</div>
   </div>
 </div>
@@ -638,16 +690,16 @@ footer {
           <span class="project-category">Startup</span>
           <span class="project-year">2024</span>
         </div>
-        <h2 class="project-name">Spectre</h2>
-        <p class="project-desc">The company I founded — building high-performance software products and digital solutions for modern businesses. A creative tech studio where innovation meets execution.</p>
+        <h2 class="project-name">Ianela Technologies</h2>
+        <p class="project-desc">The company We founded — building high-performance software products and digital solutions for modern businesses. A creative tech studio where innovation meets execution.</p>
         <div class="project-tags">
           <span class="tag">React</span>
           <span class="tag">Node.js</span>
-          <span class="tag">AWS</span>
+          <span class="tag">JavaScript</span>
           <span class="tag">Figma</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link link-primary">🌐 Visit Site</a>
+          <a href="ian.png" class="project-link link-primary">🌐 View Project</a>
           <a href="#" class="project-link link-secondary">📄 Case Study</a>
         </div>
       </div>
@@ -706,12 +758,12 @@ footer {
         <div class="project-meta">
           <span class="project-category">Mobile</span>
           <span class="project-year">2023</span>
-        </div>
-        <h2 class="project-name">FitTrack App</h2>
-        <p class="project-desc">A cross-platform fitness tracking app with personalized workout plans, nutrition logging, and progress visualization. Built for iOS and Android.</p>
+        </div>A Route Finder Application is a software tool that helps users find the shortest, fastest, or most convenient route between locations using real-time maps and navigation data.. Built for iOS and Android.</p>
         <div class="project-tags">
-          <span class="tag">React Native</span>
-          <span class="tag">Firebase</span>
+        <h2 class="project-name">Route Finder App</h2>
+        <p class="project-desc">
+        </p>
+        <div class="project-tags">
           <span class="tag">Redux</span>
         </div>
         <div class="project-links">
@@ -727,10 +779,10 @@ footer {
       <div class="project-body">
         <div class="project-meta">
           <span class="project-category">Tool</span>
-          <span class="project-year">2023</span>
+          <span class="project-year">2024</span>
         </div>
-        <h2 class="project-name">DevFlow CLI</h2>
-        <p class="project-desc">A developer productivity CLI tool that automates repetitive git workflows, project scaffolding, and deployment pipelines. Used by 500+ devs.</p>
+        <h2 class="project-name">Android studio</h2>
+        <p class="project-desc">A developer productivity tool that automates repetitive workflows, project scaffolding, and deployment pipelines. Used by 500+ devs.</p>
         <div class="project-tags">
           <span class="tag">TypeScript</span>
           <span class="tag">Node.js</span>
@@ -738,8 +790,8 @@ footer {
           <span class="tag">Shell</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link link-primary">📦 npm install</a>
-          <a href="#" class="project-link link-secondary">⬡ GitHub</a>
+          <a href="https://developer.android.com/studio" class="project-link link-primary">📦 npm install</a>
+          <a href="https://developer.android.com/studio" class="project-link link-secondary">⬡ GitHub</a>
         </div>
       </div>
     </article>
@@ -749,11 +801,11 @@ footer {
       <div class="project-image-placeholder gradient-6">🛒</div>
       <div class="project-body">
         <div class="project-meta">
-          <span class="project-category">Web App</span>
+          <span class="project-category">start up</span>
           <span class="project-year">2023</span>
         </div>
-        <h2 class="project-name">Nexus Commerce</h2>
-        <p class="project-desc">A headless e-commerce platform with real-time inventory management, multi-currency support, and a blazing-fast checkout experience built on Next.js.</p>
+        <h2 class="project-name">graphics design</h2>
+        <p class="project-desc">Graphic design techniques are creative methods used to combine typography, images, colors, and layouts to communicate ideas visually and effectively.</p>
         <div class="project-tags">
           <span class="tag">Next.js</span>
           <span class="tag">Stripe</span>
@@ -761,7 +813,7 @@ footer {
           <span class="tag">Redis</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link link-primary">🌐 Live Demo</a>
+          <a href="poster.png" class="project-link link-primary" target="_blank">🖼️ View Poster</a>
           <a href="#" class="project-link link-secondary">⬡ GitHub</a>
         </div>
       </div>
@@ -799,14 +851,14 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo" style="font-size:20px;">
-          <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+          <span class="brand-name">Michael</span><span class="brand-accent"> Otieno Ouma</span>
         </div>
-        <p>Full-Stack Developer & Founder of Spectre. Building impactful software from Nairobi, Kenya.</p>
+        <p>Software Developer & ICT Specialist. Building impactful software from Nairobi, Kenya.</p>
         <div class="social-links">
           <a href="#" class="social-btn" title="GitHub">🐙</a>
           <a href="#" class="social-btn" title="LinkedIn">💼</a>
           <a href="#" class="social-btn" title="Twitter">🐦</a>
-          <a href="#" class="social-btn" title="Email">✉️</a>
+          <a href="mailto:otienomichael0254@gmail.com" class="social-btn" title="Email">✉️</a>
         </div>
       </div>
       <div>
@@ -820,7 +872,7 @@ footer {
       <div>
         <div class="footer-heading">Work</div>
         <div class="footer-links">
-          <a href="#">Spectre Studio</a>
+          <a href="contact.html">Hire Me</a>
           <a href="#">Open Source</a>
           <a href="cv.pdf" download>Download CV</a>
         </div>
@@ -829,17 +881,17 @@ footer {
         <div class="footer-heading">Contact</div>
         <div class="footer-links">
           <a href="contact.html">Hire Me</a>
-          <a href="mailto:michael@spectre.dev">Email Me</a>
-          <a href="#">Book a Call</a>
+          <a href="mailto:otienomichael0254@gmail.com">Email Me</a>
+          <a href="contact.html">Book a Call</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2024 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
+      <p class="footer-copy">© 2026 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Sitemap</a>
+        <a href="privacy.html" target="_blank">Privacy</a>
+        <a href="terms.html" target="_blank">Terms</a>
+        <a href="sitemap.html" target="_blank">Sitemap</a>
       </div>
     </div>
   </div>
@@ -908,3 +960,4 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Michael Otieno Ouma | Full-Stack Developer & Founder</title>
+<title>Sitemap | Michael Otieno Ouma</title>
 <meta name="description" content="Michael Otieno Ouma — Full-Stack Developer, Founder of Spectre. Available for hire and open to collaborations."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -331,7 +331,7 @@ section {
 
   nav a {
     display: none;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   nav a.active {
@@ -341,19 +341,12 @@ section {
   .theme-toggle { font-size: 18px; }
 
   section.hero {
-    padding: 70px 20px 40px;
+    padding: 60px 20px 0;
   }
-
-  .hero-subtitle { font-size: 13px; }
 
   .hero-title {
     font-size: 28px;
     line-height: 1.2;
-  }
-
-  .hero-description {
-    font-size: 14px;
-    line-height: 1.6;
   }
 
   .hero-buttons {
@@ -372,51 +365,64 @@ section {
     height: 200px;
   }
 
-  .profile-pic { max-width: 100%; }
+  /* Policy page content */
+  section[style*="padding: 120px"] {
+    padding: 80px 20px 40px !important;
+    max-width: 100% !important;
+  }
 
-  .badges { font-size: 12px; }
+  section[style*="padding: 120px"] h1 {
+    font-size: 28px !important;
+    margin-bottom: 24px !important;
+  }
 
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
-  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+  section[style*="padding: 120px"] > div {
+    padding: 24px !important;
+  }
+
+  section[style*="padding: 120px"] h3 {
+    font-size: 16px !important;
+    margin: 20px 0 12px !important;
+  }
+
+  section[style*="padding: 120px"] p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+
+  section[style*="padding: 120px"] a {
+    word-break: break-word;
+  }
+
+  section[style*="padding: 120px"] ul {
+    font-size: 13px !important;
+    padding-left: 20px !important;
+  }
+
+  section[style*="padding: 120px"] li {
+    margin-bottom: 10px !important;
+    line-height: 1.6 !important;
+  }
+
   footer { padding: 30px 20px 20px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
 }
 
 @media (max-width: 480px) {
   body { font-size: 14px; }
-  
-  header {
-    padding: 12px 16px;
-  }
-
+  header { padding: 12px 16px; }
   .logo { font-size: 16px; }
-
-  nav {
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
   .theme-toggle { font-size: 16px; }
+  nav { gap: 10px; }
+  nav a { font-size: 11px; }
 
   section.hero {
-    padding: 60px 16px 30px;
+    padding: 50px 16px 0;
   }
-
-  .hero-container { gap: 40px; }
-
-  .hero-subtitle { font-size: 12px; }
 
   .hero-title {
     font-size: 24px;
-    margin-bottom: 16px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 20px;
   }
 
   .hero-buttons {
@@ -424,9 +430,9 @@ section {
   }
 
   .btn {
-    padding: 11px 16px;
+    padding: 10px 16px;
     font-size: 12px;
-    border-radius: 10px;
+    border-radius: 8px;
   }
 
   .decorative-element {
@@ -434,36 +440,48 @@ section {
     height: 160px;
   }
 
-  .profile-pic { border-radius: 16px; }
+  /* Policy pages */
+  section[style*="padding: 120px"] {
+    padding: 60px 16px 30px !important;
+  }
 
-  .badge-1, .badge-2, .badge-3 { font-size: 11px; }
+  section[style*="padding: 120px"] h1 {
+    font-size: 22px !important;
+    margin-bottom: 20px !important;
+  }
 
-  .footer-inner { padding: 0; }
+  section[style*="padding: 120px"] > div {
+    padding: 18px !important;
+    border-radius: 12px !important;
+  }
 
-  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  section[style*="padding: 120px"] h3 {
+    font-size: 15px !important;
+    margin: 16px 0 10px !important;
+  }
 
-  .footer-brand { text-align: center; }
+  section[style*="padding: 120px"] p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+  }
 
-  .footer-brand > div { font-size: 18px; }
+  section[style*="padding: 120px"] ul {
+    font-size: 12px !important;
+    padding-left: 18px !important;
+  }
 
-  .footer-brand p { font-size: 13px; margin: 10px 0; }
+  section[style*="padding: 120px"] li {
+    margin-bottom: 8px !important;
+    line-height: 1.5 !important;
+  }
 
-  .social-links { justify-content: center; }
-
-  .social-btn { width: 32px; height: 32px; font-size: 14px; }
-
+  footer { padding: 24px 16px 16px; }
+  .footer-top { grid-template-columns: 1fr; gap: 20px; }
   .footer-heading { font-size: 11px; }
-
   .footer-links { gap: 8px; }
-
   .footer-links a { font-size: 12px; }
-
-  .footer-bottom { padding-top: 20px; gap: 12px; }
-
   .footer-copy { font-size: 11px; }
-
   .footer-bottom-links { gap: 12px; }
-
   .footer-bottom-links a { font-size: 11px; }
 }
 
@@ -589,41 +607,35 @@ footer {
   </nav>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-container">
-    <!-- LEFT: CONTENT -->
-    <div class="hero-content">
-      <div class="hero-subtitle">Software Developer | IT Specialist</div>
-      <h1 class="hero-title">Hi, I'm <span class="accent">Michael otieno Ouma</span></h1>
-      <p class="hero-description">
-I am a passionate Software Engineer and ICT Specialist with expertise in software development, network administration, systems support, and information technology solutions. I possess strong problem-solving skills and experience in designing, implementing, and maintaining efficient digital systems that enhance organizational productivity. My goal is to leverage technology to create innovative, secure, and user-friendly solutions that address real-world challenges.
-      </p>
-      <div class="hero-buttons">
-        <a href="projects.html" class="btn btn-primary">👁️ View Projects</a>
-        <a href="contact.html" class="btn btn-secondary">✉️ Hire Me</a>
-        <a href="cv.pdf" download class="btn btn-secondary">⬇️ Download CV</a>
-      </div>
-    </div>
-
-    <!-- RIGHT: IMAGE -->
-    <div class="hero-image">
-      <div class="decorative-element"></div>
-      <img src="kingi.png" alt="Michael otieno Ouma" class="profile-pic">
-      <div class="badges badge-1">
-        <span>💻 Developer</span>
-      </div>
-      <div class="badges badge-2">
-        <span>👨‍💼 ICT Specialist</span>
-      </div>
-      <div class="badges badge-3">
-        <span>🚀 Innovator</span>
-      </div>
-    </div>
+<!-- CONTENT SECTION -->
+<section style="padding: 120px 60px 60px; max-width: 900px; margin: 0 auto; min-height: 80vh;">
+  <a href="index.html" style="display: inline-block; margin-bottom: 24px; color: var(--accent); text-decoration: none; font-weight: 500; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-dark)'" onmouseout="this.style.color='var(--accent)'">← Back to Home</a>
+  <h1 style="font-size: 42px; margin-bottom: 30px; color: var(--accent);">Sitemap</h1>
+  <div style="background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border-color); line-height: 1.8; color: var(--text-secondary);">
+    <ul style="list-style-type: none; padding: 0; font-size: 16px;">
+      <li style="margin-bottom: 16px;">
+        <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 18px;">🏠 Home</a>
+        <p style="font-size: 14px; margin-top: 4px;">Main portfolio landing page and introduction.</p>
+      </li>
+      <li style="margin-bottom: 16px;">
+        <a href="projects.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 18px;">💻 Projects</a>
+        <p style="font-size: 14px; margin-top: 4px;">Showcase of software development and IT projects.</p>
+      </li>
+      <li style="margin-bottom: 16px;">
+        <a href="contact.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 18px;">✉️ Contact</a>
+        <p style="font-size: 14px; margin-top: 4px;">Get in touch for hire, collaborations, and inquiries.</p>
+      </li>
+      <li style="margin-bottom: 16px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <a href="privacy.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 18px;">🔒 Privacy Policy</a>
+        <p style="font-size: 14px; margin-top: 4px;">Information about data collection and usage.</p>
+      </li>
+      <li style="margin-bottom: 16px;">
+        <a href="terms.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 18px;">📜 Terms of Service</a>
+        <p style="font-size: 14px; margin-top: 4px;">Rules and guidelines for using this website.</p>
+      </li>
+    </ul>
   </div>
 </section>
-
-
 
 <!-- FOOTER -->
 <footer>
@@ -669,9 +681,9 @@ I am a passionate Software Engineer and ICT Specialist with expertise in softwar
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="privacy.html" target="_blank">Privacy</a>
-        <a href="terms.html" target="_blank">Terms</a>
-        <a href="sitemap.html" target="_blank">Sitemap</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
       </div>
     </div>
   </div>

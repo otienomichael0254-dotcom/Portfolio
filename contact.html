@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contact | Michael Otieno Ouma</title>
-<meta name="description" content="Get in touch with Michael Otieno Ouma — Full-Stack Developer and Founder of Spectre. Available for freelance, collaborations and full-time roles."/>
+<meta name="description" content="Get in touch with Michael Otieno Ouma — .Dedicated ICT Technician with hands-on experience in computer hardware maintenance, network troubleshooting, system support, and IT infrastructure management. Skilled in diagnosing technical issues, providing efficient solutions, and ensuring reliable technology operations.
+ Available for freelance."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -691,16 +692,63 @@ footer {
 
 @media (max-width: 768px) {
   header { padding: 15px 20px; }
-  nav { gap: 16px; }
+  .logo { font-size: 18px; }
+  nav { gap: 12px; }
   nav a:not(.active) { display: none; }
-  .page-hero { padding: 130px 20px 60px; }
-  .page-title { font-size: 32px; }
-  .contact-section { padding: 20px 20px 60px; }
-  .contact-form-wrap { padding: 28px 20px; }
+  .page-hero { padding: 120px 20px 50px; }
+  .page-tag { padding: 5px 12px; font-size: 11px; }
+  .page-title { font-size: 28px; line-height: 1.2; }
+  .page-subtitle { font-size: 14px; max-width: 100%; }
+  .contact-section { padding: 20px 20px 50px; gap: 28px; grid-template-columns: 1fr; }
+  .contact-info { position: static; }
+  .info-card { padding: 20px; }
+  .info-card h3 { font-size: 16px; margin-bottom: 10px; }
+  .info-card p { font-size: 13px; }
+  .contact-form-wrap { padding: 24px 20px; }
+  .form-group label { font-size: 13px; }
+  .form-group input, .form-group textarea { font-size: 14px; padding: 10px 12px; }
   .form-row { grid-template-columns: 1fr; }
-  footer { padding: 40px 20px 20px; }
-  .footer-top { grid-template-columns: 1fr; gap: 28px; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .btn-primary { padding: 12px 20px; font-size: 13px; }
+  footer { padding: 30px 20px 20px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  header { padding: 12px 16px; }
+  .logo { font-size: 16px; }
+  .theme-toggle { font-size: 16px; }
+  nav { gap: 10px; }
+  nav a { font-size: 12px; }
+  .page-hero { padding: 100px 16px 40px; }
+  .page-tag { padding: 4px 10px; font-size: 10px; }
+  .page-title { font-size: 24px; margin-bottom: 16px; }
+  .page-subtitle { font-size: 13px; line-height: 1.5; }
+  .contact-section { padding: 16px 16px 40px; gap: 20px; }
+  .contact-info { padding: 0; }
+  .info-card { padding: 16px; border-radius: 12px; margin-bottom: 16px; }
+  .availability-label { font-size: 12px; }
+  .info-card h3 { font-size: 15px; margin-bottom: 8px; }
+  .info-card p { font-size: 12px; line-height: 1.5; }
+  .contact-links { gap: 10px; }
+  .contact-links a { font-size: 12px; padding: 8px 12px; }
+  .contact-form-wrap { padding: 20px 16px; border-radius: 12px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { font-size: 12px; margin-bottom: 6px; }
+  .form-group input, .form-group textarea { font-size: 13px; padding: 9px 10px; border-radius: 8px; }
+  .form-row { grid-template-columns: 1fr; gap: 12px; }
+  .btn-primary { padding: 11px 16px; font-size: 12px; border-radius: 8px; width: 100%; }
+  .form-message { font-size: 12px; padding: 10px 12px; }
+  footer { padding: 24px 16px 16px; }
+  .footer-top { gap: 20px; }
+  .footer-heading { font-size: 11px; }
+  .footer-links { gap: 8px; }
+  .footer-links a { font-size: 12px; }
+  .social-btn { width: 32px; height: 32px; font-size: 14px; }
+  .footer-copy { font-size: 11px; }
+  .footer-bottom-links { gap: 12px; }
+  .footer-bottom-links a { font-size: 11px; }
 }
 </style>
 </head>
@@ -710,7 +758,7 @@ footer {
 <!-- HEADER -->
 <header id="main-header">
   <a href="index.html" class="logo">
-    <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+    <span class="brand-name">Michael</span><span class="brand-accent"> Otieno Ouma</span>
   </a>
   <nav>
     <a href="index.html">Home</a>
@@ -722,6 +770,7 @@ footer {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
+  <a href="index.html" style="display: inline-block; margin-bottom: 24px; color: var(--accent); text-decoration: none; font-weight: 500; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-dark)'" onmouseout="this.style.color='var(--accent)'">← Back to Home</a>
   <div class="page-tag">✦ Get In Touch</div>
   <h1 class="page-title">Let's Work Together</h1>
   <p class="page-subtitle">Have a project in mind? Looking to collaborate or hire? I'd love to hear from you — let's build something great.</p>
@@ -743,18 +792,18 @@ footer {
 
     <div class="info-card">
       <div class="contact-items">
-        <a href="mailto:michael@spectre.dev" class="contact-item">
+        <a href="mailto:otienomichael0254@gmail.com" class="contact-item">
           <div class="contact-item-icon">✉️</div>
           <div class="contact-item-text">
             <span class="contact-item-label">Email</span>
-            <span class="contact-item-value">michael@spectre.dev</span>
+            <span class="contact-item-value">otienomichael0254@gmail.com</span>
           </div>
         </a>
-        <a href="tel:+254700000000" class="contact-item">
+        <a href="tel:+254743334950 or 0791781648" class="contact-item">
           <div class="contact-item-icon">📞</div>
           <div class="contact-item-text">
             <span class="contact-item-label">Phone</span>
-            <span class="contact-item-value">+254 700 000 000</span>
+            <span class="contact-item-value">+254 743 334 950 / 0791 781 648</span>
           </div>
         </a>
         <div class="contact-item" style="cursor:default;">
@@ -793,19 +842,19 @@ footer {
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="firstName">First Name *</label>
-            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required />
+            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Kerry" required />
             <div class="field-error" id="firstNameErr">Please enter your first name.</div>
           </div>
           <div class="form-group">
             <label class="form-label" for="lastName">Last Name *</label>
-            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required />
+            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="mike" required />
             <div class="field-error" id="lastNameErr">Please enter your last name.</div>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="email">Email Address *</label>
-          <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required />
+          <input type="email" id="email" name="email" class="form-input" placeholder="kerrymike@example.com" required />
           <div class="field-error" id="emailErr">Please enter a valid email address.</div>
         </div>
 
@@ -877,14 +926,14 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo" style="font-size:20px;">
-          <span class="brand-name">Michael</span><span class="brand-accent">Otieno Ouma</span>
+          <span class="brand-name">Michael</span><span class="brand-accent"> Otieno Ouma</span>
         </div>
-        <p>Full-Stack Developer & Founder of Spectre. Building impactful software from Nairobi, Kenya.</p>
+        <p>Software Developer & ICT Specialist. Building impactful software from Nairobi, Kenya.</p>
         <div class="social-links-footer">
           <a href="#" class="social-btn-sm" title="GitHub">🐙</a>
           <a href="#" class="social-btn-sm" title="LinkedIn">💼</a>
           <a href="#" class="social-btn-sm" title="Twitter">🐦</a>
-          <a href="mailto:michael@spectre.dev" class="social-btn-sm" title="Email">✉️</a>
+          <a href="mailto:otienomichael0254@gmail.com" class="social-btn-sm" title="Email">✉️</a>
         </div>
       </div>
       <div>
@@ -907,17 +956,17 @@ footer {
         <div class="footer-heading">Contact</div>
         <div class="footer-links">
           <a href="contact.html">Hire Me</a>
-          <a href="mailto:michael@spectre.dev">Email Me</a>
-          <a href="#">Book a Call</a>
+          <a href="mailto:otienomichael0254@gmail.com">Email Me</a>
+          <a href="contact.html">Book a Call</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2024 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
+      <p class="footer-copy">© 2026 <span>Michael Otieno Ouma</span>. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Sitemap</a>
+        <a href="privacy.html" target="_blank">Privacy</a>
+        <a href="terms.html" target="_blank">Terms</a>
+        <a href="sitemap.html" target="_blank">Sitemap</a>
       </div>
     </div>
   </div>
@@ -1157,3 +1206,4 @@ function resetForm() {
 
 </body>
 </html>
+
